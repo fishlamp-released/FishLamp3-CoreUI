@@ -1,32 +1,83 @@
 Pod::Spec.new do |s|
    
-    s.name         = "FishLampWidgets"
-    s.version      = "0.0.1"
+    s.name         = "FishLampUI"
+    s.version      = "0.0.2"
     s.summary      = "This is one part of the FishLamp framework."
     s.homepage     = "http://fishlamp.com"
     s.license      = 'MIT'
     s.author       = { "Mike Fullerton" => "hello@fishlamp.com" }
-    s.source       = { :git => "https://github.com/fishlamp/Widgets.git", :tag => s.version.to_s }
+    s.source       = { :git => "https://github.com/fishlamp/ActivityLog.git", :tag => s.version.to_s }
 
-    s.ios.deployment_target = '6.1'
+    s.ios.deployment_target = '7.0'
     s.osx.deployment_target = '10.6'
     s.requires_arc = false
-    
-# these are the core pods
-	s.dependency 'FishLampCore'
-	s.dependency 'FishLampDrawables'
-	s.dependency 'FishLampCompatibility'
+	s.dependency 'FishLamp/Core'
+	s.default_subspec = 'All'
+
+	s.subspec 'Compatibility' do |ss|
+		ss.source_files = 'Compatibility/Classes/**/*.{h,m}'
+	end
+
+	s.subspec 'Geometry' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.source_files = 'Geometry/Classes/**/*.{h,m}'
+	end
+
+	s.subspec 'ActivityLog' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Strings'
+		ss.source_files = 'ActivityLog/Classes/**/*.{h,m}'
+	end
+
+	s.subspec 'Animation' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Geometry'
+		ss.source_files = 'Animation/Classes/**/*.{h,m}'
+	end
+
+	s.subspec 'ColorUtils' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.source_files = 'ColorUtils/Classes/**/*.{h,m}'
+	end
+
+	s.subspec 'CoreTextUtils' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.source_files = 'CoreTextUtils/Classes/**/*.{h,m}'
+	end
+
+	s.subspec 'Drawables' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Geometry'
+		ss.dependency 'FishLampUI/CoreTextUtils'
+		ss.source_files = 'Drawables/Classes/**/*.{h,m}'
+	end
+
+	s.subspec 'Notifications' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.source_files = 'Notifications/Classes/**/*.{h,m}'
+	end
+
+	s.subspec 'Strings' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.source_files = 'Strings/Classes/**/*.{h,m}'
+	end
+
+	s.subspec 'Widgets' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Drawables'
+		ss.source_files = 'Widgets/Classes/**/*.{h,m}'
+	end
 	
-	s.source_files = 'Classes/**/*.{h,m}'
-
-
-    
-
-
-
-    
-
-
+	s.subspec 'All' do |ss|
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Geometry'
+		ss.dependency 'FishLampUI/CoreTextUtils'
+		ss.dependency 'FishLampUI/Drawables'
+		ss.dependency 'FishLampUI/Widgets'
+		ss.dependency 'FishLampUI/ColorUtils'
+		ss.dependency 'FishLampUI/Animation'
+		ss.dependency 'FishLampUI/ActivityLog'
+	end
 
     s.xcconfig = {
         "CLANG_ANALYZER_DEADCODE_DEADSTORES" => "YES",
