@@ -12,69 +12,65 @@ Pod::Spec.new do |s|
     s.osx.deployment_target = '10.6'
     s.requires_arc = false
 	s.dependency 'FishLamp/Core'
-	s.default_subspec = 'All'
+	s.default_subspec = 'Core'
 
-	s.subspec 'Compatibility' do |ss|
-		ss.source_files = 'Compatibility/Classes/**/*.{h,m}'
-	end
+    s.subspec 'Core' do |ss|
+    	ss.subspec 'Compatibility' do |ss|
+    		ss.source_files = 'Compatibility/Classes/**/*.{h,m}'
+    	end
 
-	s.subspec 'Geometry' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
-		ss.source_files = 'Geometry/Classes/**/*.{h,m}'
-	end
+    	ss.subspec 'Geometry' do |ss|
+    		ss.source_files = 'Geometry/Classes/**/*.{h,m}'
+    	end
+
+    	s.subspec 'ColorUtils' do |ss|
+    		ss.source_files = 'ColorUtils/Classes/**/*.{h,m}'
+    	end
+    end
 
 	s.subspec 'ActivityLog' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Core'
 		ss.dependency 'FishLampUI/Strings'
 		ss.source_files = 'ActivityLog/Classes/**/*.{h,m}'
 	end
 
 	s.subspec 'Animation' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
-		ss.dependency 'FishLampUI/Geometry'
+		ss.dependency 'FishLampUI/Core'
 		ss.source_files = 'Animation/Classes/**/*.{h,m}'
 	end
 
-	s.subspec 'ColorUtils' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
-		ss.source_files = 'ColorUtils/Classes/**/*.{h,m}'
-	end
-
 	s.subspec 'CoreTextUtils' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Core'
 		ss.source_files = 'CoreTextUtils/Classes/**/*.{h,m}'
 	end
 
 	s.subspec 'Drawables' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
-		ss.dependency 'FishLampUI/Geometry'
+		ss.dependency 'FishLampUI/Core'
 		ss.dependency 'FishLampUI/CoreTextUtils'
 		ss.source_files = 'Drawables/Classes/**/*.{h,m}'
 	end
 
 	s.subspec 'Notifications' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Core'
 		ss.source_files = 'Notifications/Classes/**/*.{h,m}'
 	end
 
 	s.subspec 'Strings' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Core'
 		ss.source_files = 'Strings/Classes/**/*.{h,m}'
 	end
 
 	s.subspec 'Widgets' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Core'
 		ss.dependency 'FishLampUI/Drawables'
 		ss.source_files = 'Widgets/Classes/**/*.{h,m}'
 	end
 	
 	s.subspec 'All' do |ss|
-		ss.dependency 'FishLampUI/Compatibility'
-		ss.dependency 'FishLampUI/Geometry'
+		ss.dependency 'FishLampUI/Core'
 		ss.dependency 'FishLampUI/CoreTextUtils'
 		ss.dependency 'FishLampUI/Drawables'
 		ss.dependency 'FishLampUI/Widgets'
-		ss.dependency 'FishLampUI/ColorUtils'
 		ss.dependency 'FishLampUI/Animation'
 		ss.dependency 'FishLampUI/ActivityLog'
 	end
