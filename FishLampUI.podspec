@@ -9,61 +9,68 @@ Pod::Spec.new do |s|
     s.source       = { :git => "https://github.com/fishlamp/ActivityLog.git", :tag => s.version.to_s }
 
     s.ios.deployment_target = '7.0'
-    s.osx.deployment_target = '10.6'
+    s.osx.deployment_target = '10.8'
     s.requires_arc = false
 	s.dependency 'FishLamp/Core'
 	s.default_subspec = 'Core'
 
+    s.ios.frameworks = 'UIKit'
+    s.osx.frameworks = 'Cocoa', 'Quartz', 'QuartzCore'
+
+	s.subspec 'Compatibility' do |ss|
+		ss.source_files = 'Compatibility/**/*.{h,m}'
+	end
+
+	s.subspec 'Geometry' do |ss|
+		ss.source_files = 'Geometry/**/*.{h,m}'
+	end
+
+	s.subspec 'ColorUtils' do |ss|
+		ss.source_files = 'ColorUtils/**/*.{h,m}'
+	end
+
     s.subspec 'Core' do |ss|
-    	ss.subspec 'Compatibility' do |ss|
-    		ss.source_files = 'Compatibility/Classes/**/*.{h,m}'
-    	end
-
-    	ss.subspec 'Geometry' do |ss|
-    		ss.source_files = 'Geometry/Classes/**/*.{h,m}'
-    	end
-
-    	s.subspec 'ColorUtils' do |ss|
-    		ss.source_files = 'ColorUtils/Classes/**/*.{h,m}'
-    	end
+		ss.dependency 'FishLampUI/Compatibility'
+		ss.dependency 'FishLampUI/Geometry'
+		ss.dependency 'FishLampUI/ColorUtils'
     end
 
 	s.subspec 'ActivityLog' do |ss|
 		ss.dependency 'FishLampUI/Core'
 		ss.dependency 'FishLampUI/Strings'
-		ss.source_files = 'ActivityLog/Classes/**/*.{h,m}'
+		ss.source_files = 'ActivityLog/**/*.{h,m}'
 	end
 
 	s.subspec 'Animation' do |ss|
 		ss.dependency 'FishLampUI/Core'
-		ss.source_files = 'Animation/Classes/**/*.{h,m}'
+		ss.source_files = 'Animation/**/*.{h,m}'
 	end
 
 	s.subspec 'CoreTextUtils' do |ss|
 		ss.dependency 'FishLampUI/Core'
-		ss.source_files = 'CoreTextUtils/Classes/**/*.{h,m}'
+		ss.source_files = 'CoreTextUtils/**/*.{h,m}'
 	end
 
 	s.subspec 'Drawables' do |ss|
 		ss.dependency 'FishLampUI/Core'
 		ss.dependency 'FishLampUI/CoreTextUtils'
-		ss.source_files = 'Drawables/Classes/**/*.{h,m}'
+		ss.source_files = 'Drawables/**/*.{h,m}'
 	end
 
 	s.subspec 'Notifications' do |ss|
 		ss.dependency 'FishLampUI/Core'
-		ss.source_files = 'Notifications/Classes/**/*.{h,m}'
+		ss.source_files = 'Notifications/**/*.{h,m}'
 	end
 
 	s.subspec 'Strings' do |ss|
 		ss.dependency 'FishLampUI/Core'
-		ss.source_files = 'Strings/Classes/**/*.{h,m}'
+		ss.source_files = 'Strings/**/*.{h,m}'
 	end
 
 	s.subspec 'Widgets' do |ss|
 		ss.dependency 'FishLampUI/Core'
 		ss.dependency 'FishLampUI/Drawables'
-		ss.source_files = 'Widgets/Classes/**/*.{h,m}'
+		ss.source_files = 'Widgets/**/*.{h,m}'
 	end
 	
 	s.subspec 'All' do |ss|
