@@ -75,7 +75,7 @@ NSString* const FLActivityLogStringKey = @"FLActivityLogStringKey";
             appendAttributedString:(NSAttributedString*) string {
 
 #if TRACE
-    FLLog(@"ActivityLog: %@", string.string);
+    FLDebugLog(@"ActivityLog: %@", string.string);
 #endif
 
     NSAttributedString* theString = string;

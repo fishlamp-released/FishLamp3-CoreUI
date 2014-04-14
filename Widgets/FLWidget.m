@@ -188,7 +188,7 @@
 - (void) setFrame:(CGRect) frame {
 #if DEBUG
 	if(frame.origin.x > 5000 || frame.origin.x < -5000) {
-		FLLog(@"widget frame is out of bounds");
+		FLDebugLog(@"widget frame is out of bounds");
 	}
 #endif
 
@@ -196,7 +196,7 @@
 #if DEBUG
 #if IOS
 		if(!CGRectIsIntegral(frame)) {
-			FLLog(@"Warning setting non-integral rect in widget: %@", NSStringFromCGRect(frame));
+			FLDebugLog(@"Warning setting non-integral rect in widget: %@", NSStringFromCGRect(frame));
 		}
 #endif        
 #endif	

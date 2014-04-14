@@ -22,7 +22,7 @@
 ////        
 ////    }
 ////
-////    FLLog(@"next: %f, prev: %f", degree, inDegree);
+////    FLDebugLog(@"next: %f, prev: %f", degree, inDegree);
 ////
 ////    return degree;
 ////}
@@ -75,7 +75,7 @@
 //    _fromDegree = from;
 //    _toDegree = toDegree;
 //    
-//    FLLog(@"Start rotating: from %f to %f", _fromDegree, _toDegree);
+//    FLDebugLog(@"Start rotating: from %f to %f", _fromDegree, _toDegree);
 //    
 //    [self startAnimating:target startFlags:startFlags completion:completion];
 //}            
@@ -86,7 +86,7 @@
 //    
 //    _deltaAmount = degrees;
 //    
-//    FLLog(@"Start rotating by degrees: %f", _deltaAmount);
+//    FLDebugLog(@"Start rotating by degrees: %f", _deltaAmount);
 //    
 //    [self startAnimating:target completion:completion];
 //            

@@ -305,7 +305,7 @@ extern NSRect NSRectInsetWithEdgeInsets(NSRect rect, NSEdgeInsets insets);
 
 //#if DEBUG
 //
-//#define FLWarnIfRectIsNotOptimizedForView(r) if(!NSRectIsOptimizedForView(r)) FLLog(@"%s is not optimized for view", #r)
+//#define FLWarnIfRectIsNotOptimizedForView(r) if(!NSRectIsOptimizedForView(r)) FLDebugLog(@"%s is not optimized for view", #r)
 //#define FLAssertRectOptimizedForView(r) FLAssert(NSRectIsOptimizedForView(r), @"%s is not optimized for view", #r) 
 //
 //#else

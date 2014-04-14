@@ -174,7 +174,7 @@ extern CGRect FLRectLayoutRectInRect(
 
 #if DEBUG
 
-#define FLWarnIfRectIsNotOptimizedForView(r) if(!CGRectIsOptimizedForView(r)) FLLog(@"%s is not optimized for view", #r)
+#define FLWarnIfRectIsNotOptimizedForView(r) if(!CGRectIsOptimizedForView(r)) FLDebugLog(@"%s is not optimized for view", #r)
 #define FLAssertRectOptimizedForView(r) FLAssert(CGRectIsOptimizedForView(r), @"%s is not optimized for view", #r) 
 
 #else

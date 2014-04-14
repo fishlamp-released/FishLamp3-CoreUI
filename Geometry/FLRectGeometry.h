@@ -157,7 +157,7 @@
 //
 //#if DEBUG
 //
-//#define FLWarnIfRectIsNotOptimizedForView(r) if(!FLRectIsOptimizedForView(r)) FLLog(@"%s is not optimized for view", #r)
+//#define FLWarnIfRectIsNotOptimizedForView(r) if(!FLRectIsOptimizedForView(r)) FLDebugLog(@"%s is not optimized for view", #r)
 //#define FLAssertRectOptimizedForView(r) FLAssert(FLRectIsOptimizedForView(r), @"%s is not optimized for view", #r) 
 //
 //#else
