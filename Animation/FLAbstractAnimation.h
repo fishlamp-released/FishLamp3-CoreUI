@@ -57,7 +57,7 @@ typedef enum {
     FLAnimationTiming _timing;
     FLAnimationDirection _direction;
     FLAnimationAxis _axis;
-    __unsafe_unretained FLAbstractAnimation* _parentAnimation;
+    FL_WEAK FLAbstractAnimation* _parentAnimation;
 }
 
 @property (readwrite, assign, nonatomic) BOOL removeTransform;

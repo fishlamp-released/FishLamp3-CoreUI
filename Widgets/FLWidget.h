@@ -28,7 +28,7 @@
 
 @interface FLWidget : NSObject /*<FLGridCellAware>*/ {
 @private
-    __unsafe_unretained id _parent;
+    FL_WEAK id _parent;
     NSMutableArray* _subWidgets;
 
 // visible properties

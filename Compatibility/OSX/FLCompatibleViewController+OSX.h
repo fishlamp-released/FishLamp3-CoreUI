@@ -17,7 +17,7 @@
 @interface FLCompatibleViewController : NSViewController {
 @private
     BOOL _viewLoaded;
-    __unsafe_unretained NSViewController* _parentViewController;
+    FL_WEAK NSViewController* _parentViewController;
     NSMutableArray* _childViewControllers;
 }
 

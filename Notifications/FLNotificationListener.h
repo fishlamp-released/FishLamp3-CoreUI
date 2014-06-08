@@ -11,8 +11,8 @@
 
 @interface FLNotificationListener : NSObject {
 @private
-    __unsafe_unretained id _sender;
-    __unsafe_unretained id _target;
+    FL_WEAK id _sender;
+    FL_WEAK id _target;
     NSString* _eventName;
     NSString* _parameterKey;
     SEL _action;
@@ -41,19 +41,3 @@
 
 @end
 
-//
-//@interface FLBatchNotificationListener : NSObject {
-//@private
-//    __unsafe_unretained id _target;
-//    NSMutableDictionary* _actions;
-//}
-//
-//- (id) initWithTarget:(id) target;
-//
-//- (void) setAction:(SEL) action forEvent:(NSString*) event fromSender:(id) sender 
-//- (void) setAction:(SEL) action forEvent:(NSString*) event fromSender:(id) sender withParameterKey:(NSString*) key;
-//
-//addAction:(SEL) action forEvent:(NSString*) event;
-//- (void) addAction:(SEL) action forEvent:(NSString*) event withParameterKey:(id) key;
-//
-//@end
