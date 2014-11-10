@@ -16,8 +16,8 @@
     NSDictionary* _userInfo;
 }
 
-@property (readwrite, strong, nonatomic) NSString* name;
-@property (readwrite, strong, nonatomic) id object;
-@property (readwrite, strong, nonatomic) NSDictionary* userInfo;
+@property (readwrite, copy) NSString *name;
+@property (readwrite, retain) id object;
+@property (readwrite, copy) NSDictionary *userInfo;
 
 @end
